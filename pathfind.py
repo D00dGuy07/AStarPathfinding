@@ -216,13 +216,13 @@ def AStarStep():
         return
     
     neighbors = [
-        vec2(current.x - 1, current.y - 1),
+#        vec2(current.x - 1, current.y - 1),
         vec2(current.x,     current.y - 1),
-        vec2(current.x + 1, current.y - 1),
+#        vec2(current.x + 1, current.y - 1),
         vec2(current.x + 1, current.y),
-        vec2(current.x + 1, current.y + 1),
+#        vec2(current.x + 1, current.y + 1),
         vec2(current.x,     current.y + 1),
-        vec2(current.x - 1, current.y + 1),
+#        vec2(current.x - 1, current.y + 1),
         vec2(current.x - 1, current.y),
     ]
     
