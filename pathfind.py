@@ -152,7 +152,6 @@ def AStarHeuristic(node):
     return Manhattan(EndPos, node)
 
 openSet = []
-closedSet = []
 cameFrom = {}
 gScore = {}
 fScore = {}
@@ -162,7 +161,6 @@ Path = []
 
 def AStar():
     global openSet
-    global closedSet
     global cameFrom
     global gScore
     global fScore
@@ -172,7 +170,6 @@ def AStar():
     global StartPos
 
     openSet = [StartPos]
-    closedSet = []
     
     cameFrom = {}
     
@@ -186,7 +183,6 @@ def AStar():
     
 def AStarStep():
     global openSet
-    global closedSet
     global cameFrom
     global gScore
     global fScore
@@ -206,7 +202,6 @@ def AStarStep():
             current = node
             
     openSet.remove(current)
-    closedSet.append(current)
     Grid.Set(current, 4)
     
     if current.x == EndPos.x and current.y == EndPos.y:
@@ -229,8 +224,7 @@ def AStarStep():
     for neighbor in neighbors:
         if (neighbor.x < 0 or neighbor.x >= Grid.Width or 
             neighbor.y < 0 or neighbor.y >= Grid.Height or 
-            Grid.Get(neighbor) == 1 or
-            neighbor in closedSet):
+            Grid.Get(neighbor) == 1):
             continue
         
         tentativeGScore = gScore.get(current, math.inf) + Manhattan(current, neighbor)
